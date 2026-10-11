@@ -1,0 +1,16 @@
+# Flexity — static site, no build step required
+# "Deploy directory" = the folder containing index.html
+
+[build]
+  publish = "."
+
+# Long-cache the two asset files (their URLs are versioned),
+# while the HTML itself is always revalidated.
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
